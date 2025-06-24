@@ -1,0 +1,30 @@
+# .NET build artifacts
+bin/
+obj/
+TestResults/
+
+# Atata test logs and reports
+**/Logs/
+*.log.txt
+*.html
+*.png
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider / JetBrains IDEs
+.idea/
+
+# System files
+*.DS_Store
+*.vs/
+
+# Packages
+packages/
+*.nupkg
