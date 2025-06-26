@@ -1,4 +1,4 @@
-name: Atata SpecFlow Tests
+name: Atata Reqnroll Tests
 
 on:
   push:

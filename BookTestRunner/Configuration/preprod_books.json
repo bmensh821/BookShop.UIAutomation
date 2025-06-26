@@ -1,0 +1,22 @@
+﻿{
+  "_commment": "Example Configuration file for different environment for Atata framework in a .NET project",
+  "Atata": {
+    "BaseUrl": "https://preprod.books.toscrape.com/",
+    "Driver": {
+      "Alias": "chrome",
+      "IsHeadless": false,
+      "Options": {
+        "Arguments": [
+          "--start-maximized",
+          "--disable-infobars",
+          "--window-size=1280,800"
+        ]
+      }
+    },
+    "RetryTimeout": "30s",
+    "ArtifactsPath": "Logs",
+    "LogConsumers": [
+      { "Type": "Atata.LogConsumerNUnitTrace, Atata" }
+    ]
+  }
+}
