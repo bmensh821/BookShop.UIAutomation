@@ -9,11 +9,18 @@ public class TestHooks
     [BeforeScenario]
     public void SetUp()
     {
-        AtataContext.Configure()
+        var env = Environment.GetEnvironmentVariable("TEST_ENV") ?? "dev";
+        var configFile = Path.Combine("Configuration", $"{env}.json");
+
+        AtataContext.GlobalConfiguration
+            .ApplyJsonConfig(configFile)
+            .UseCulture("en-US")
+            .UseBaseRetryTimeout(TimeSpan.FromSeconds(10))
             .UseChrome()
-            .UseNUnitTestName()
-            .LogConsumers.AddNUnitTestContext()
-            .Build();
+            .UseNUnitTestName();
+        AtataContext.GlobalConfiguration.LogConsumers.AddNUnitTestContext();
+        AtataContext.GlobalConfiguration.Build();
+
     }
 
     [AfterScenario]

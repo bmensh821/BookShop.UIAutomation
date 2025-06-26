@@ -123,10 +123,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  await testRunner.GivenAsync("I go to the Books page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 6
  await testRunner.WhenAsync("I select \'Books\' from the side menu", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 7
  await testRunner.ThenAsync("I should see all Books available with the total of \'1000\' results", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -134,13 +134,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add a book to the baskets")]
-        public async global::System.Threading.Tasks.Task AddABookToTheBaskets()
+        [NUnit.Framework.DescriptionAttribute("Add a book to the basket")]
+        public async global::System.Threading.Tasks.Task AddABookToTheBasket()
         {
             string[] tagsOfScenario = ((string[])(null));
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add a book to the baskets", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 13
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add a book to the basket", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -150,13 +150,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 14
+#line 12
  await testRunner.GivenAsync("I go to the Books page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 15
+#line 13
  await testRunner.WhenAsync("I locate book named \'A Light in the Attic\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 14
  await testRunner.ThenAsync("I should see the book price of \'51.77\' and I can add it to the basket", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -176,7 +176,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("book_name", book_Name);
             argumentsOfScenario.Add("book_price", book_Price);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add multiple books to the basket", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -186,13 +186,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 19
+#line 17
  await testRunner.GivenAsync("I go to the Books page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 20
+#line 18
  await testRunner.WhenAsync(string.Format("I locate book named \'{0}\'", book_Name), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 19
  await testRunner.ThenAsync(string.Format("I should see the book price of \'{0}\' and I can add it to the basket", book_Price), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

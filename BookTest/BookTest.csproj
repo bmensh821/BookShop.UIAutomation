@@ -7,16 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Atata" Version="3.6.0" />
-    <PackageReference Include="Atata.WebDriverSetup" Version="3.3.0" />
-    <PackageReference Include="NUnit" Version="4.3.2" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="137.0.7151.11900" />
+	  <PackageReference Include="Atata" Version="3.6.0" />
+	  <PackageReference Include="Atata.Configuration.Json" Version="3.0.0" />
+	  <PackageReference Include="Atata.WebDriverExtras" Version="3.2.0" />
+	  <PackageReference Include="Atata.WebDriverSetup" Version="3.3.0" />
+	  <PackageReference Include="NUnit" Version="4.3.2" />
+	  <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="137.0.7151.11900" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\" />
     <Folder Include="DataModel\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
 
 </Project>
