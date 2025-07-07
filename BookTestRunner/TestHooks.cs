@@ -1,31 +1,26 @@
-﻿using Reqnroll;
-using Atata;
+﻿using BookTest.UI;
+using Reqnroll;
 
 namespace BookTestRunner;
 
 [Binding]
-public class TestHooks
+public sealed class TestHooks
 {
-    [BeforeScenario]
-    public void SetUp()
+    [BeforeTestRun]
+    public static void SetUpTestRun()
     {
-        var env = Environment.GetEnvironmentVariable("TEST_ENV") ?? "dev";
-        var configFile = Path.Combine("Configuration", $"{env}.json");
+        UITestContext.GlobalOneTimeSetUp();
+    }
 
-        AtataContext.GlobalConfiguration
-            .ApplyJsonConfig(configFile)
-            .UseCulture("en-US")
-            .UseBaseRetryTimeout(TimeSpan.FromSeconds(10))
-            .UseChrome()
-            .UseNUnitTestName();
-        AtataContext.GlobalConfiguration.LogConsumers.AddNUnitTestContext();
-        AtataContext.GlobalConfiguration.Build();
-
+    [BeforeScenario]
+    public static void SetUpScenario()
+    {
+        UITestContext.StartDriver();
     }
 
     [AfterScenario]
-    public void TearDown()
+    public static void TearDownScenario()
     {
-        AtataContext.Current?.Dispose();
+        UITestContext.StopDriver();
     }
 }

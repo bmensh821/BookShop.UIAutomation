@@ -1,0 +1,15 @@
+﻿{
+  "environmentSettings": {
+    "name": "prod"
+  },
+  "AtataSettings": {
+    "baseRetryTimeout": "30"
+  },
+  "ChromeSettings": {
+    "commandTimeout": "30",
+    "arguments": [ "window-size=1920,1080", "test-type", "disable-gpu" ]
+  },
+  "UrlSettings": {
+    "baseUrl": "https://books.toscrape.com/"
+  }
+}

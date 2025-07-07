@@ -16,7 +16,7 @@
 		<PackageReference Include="Reqnroll" Version="2.4.1" />
 		<PackageReference Include="Reqnroll.NUnit" Version="2.4.1" />
 		<PackageReference Include="Reqnroll.Tools.MsBuild.Generation" Version="2.4.1" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.4" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
 		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
 	</ItemGroup>
 
@@ -29,12 +29,6 @@
 			<Generator>ReqnrollSingleFileGenerator</Generator>
 			<LastGenOutput>books.feature.cs</LastGenOutput>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="Configuration\dev.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
 	</ItemGroup>
 
 </Project>
