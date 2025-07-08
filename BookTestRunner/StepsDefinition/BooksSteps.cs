@@ -1,12 +1,22 @@
 ﻿using Atata;
+using static BookTest.Controls.AtataShortcuts;
+using NUnit.Framework;
 using Reqnroll;
-using BookTest.Pages;
+using BookTest.UI.Pages;
 
 namespace BookTestRunner.StepsDefinition;
+
 
 [Binding]
 public sealed class BooksSteps
 {
+    private readonly ScenarioContext _scenarioContext;
+
+    public BooksSteps(ScenarioContext scenarioContext)
+    {
+        _scenarioContext = scenarioContext;
+    }
+
     private BooksPage _booksPage;
 
     [Given("I go to the Books page")]
@@ -16,62 +26,32 @@ public sealed class BooksSteps
     }
 
     [When("I select '(.*)' from the side menu")]
-    public void WhenISelectFromTheSideMenu(string books)
+    public void WhenISelectFromTheSideMenu(string category)
     {
-        throw new PendingStepException();
+        On<BooksPage>().ClickCategory(category);
     }
 
     [Then("I should see all Books available with the total of '(.*)' results")]
-    public void ThenIShouldSeeAllBooksAvailableWithTheTotalOfResults(string p0)
+    public void ThenIShouldSeeAllBooksAvailableWithTheTotalOfResults(string bookCounts)
     {
-        throw new PendingStepException();
+        int count = int.Parse(bookCounts);
+        On<BooksPage>().BooksCount.Content.Equals(bookCounts);
     }
 
     [When("I locate book named '(.*)'$")]
-    public void WhenILocateBookNamed(string p0)
+    public void WhenILocateBookNamed(string title)
     {
-        throw new PendingStepException();
+        _scenarioContext.Set(title, "title");
+        On<BooksPage>().GetBookByTitle(title);
     }
 
     [Then("I should see the book price of '(.*)' and I can add it to the basket")]
-    public void ThenIShouldSeeTheBookPriceOfAndICanAddItToTheBasket(string p0)
+    public void ThenIShouldSeeTheBookPriceOfAndICanAddItToTheBasket(string expectedPrice)
     {
-        throw new PendingStepException();
+        var page = On<BooksPage>();
+        var actualPrice = page.GetBookPrice(_scenarioContext.Get<string>("title"));
+
+        Assert.That(actualPrice, Is.EqualTo($"£{expectedPrice}"));
+        Assert.That(page.IsBookInStock(_scenarioContext.Get<string>("title")), Is.True);
     }
-
 }
-
-/*[Given("I go to the Books page")]
-public void GivenIGoToTheBooksPage()
-{
-    _booksPage = Go.To<BooksPage>();
-}
-
-[When("I select {string} from the side menu")]
-public void WhenISelectFromTheSideMenu(string category)
-{
-    _booksPage.ClickCategory(category);
-}
-
-[Then("I should see all Books available with the total of {string} results")]
-public void ThenIShouldSeeAllBooksAvailableWithTheTotalOfResults(string expectedCount)
-{
-    int count = int.Parse(expectedCount);
-    _booksPage.Books.Should.HaveCount(count);
-}
-
-[When("I locate book named {string}")]
-public void WhenILocateBookNamed(string title)
-{
-    var book = _booksPage.GetBookByTitle(title);
-    Assert.IsNotNull(book);
-}
-
-[Then("I should see the book price of {string} and I can add it to the basket")]
-public void ThenIShouldSeeTheBookPriceOfAndICanAddItToTheBasket(string expectedPrice)
-{
-    var book = _booksPage.Books.FirstOrDefault();
-    Assert.That(book.Price.Value, Is.EqualTo(expectedPrice));
-    Assert.That(book.Availability.Content, Does.Contain("In stock"));
-}*/
-
